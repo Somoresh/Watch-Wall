@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:st="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+             BackgroundColor="#f5f6f6"
+             x:Class="WatchWall.DetailsPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="2*, *">
+
+        <Image Aspect="Fill" Source="bgDetails.png"/>
+        <ImageButton Source="back.png" Margin="20" BackgroundColor="Transparent" HorizontalOptions="Start" VerticalOptions="Start"
+                     HeightRequest="24" WidthRequest="24" Clicked="ImageButton_Clicked"/>
+
+        <Grid WidthRequest="288" HeightRequest="360" HorizontalOptions="Center" VerticalOptions="Center">
+            <Path Fill="white" Aspect="Uniform"
+                  Data="M60 169.745C60 162.708 63.6977 156.189 69.7371 152.579L309.737 9.0929C323.068 1.12286 340 10.7271 340 26.2589V331C340 342.046
+                  331.046 351 320 351H80C68.9543 351 60 342.046 60 331V169.7452"/>
+            <Image Source="{Binding SelectedProduct.Image}" st:Transition.Name="WatchImage"/>
+
+
+        </Grid>
+        <StackLayout Spacing="20" Grid.Row="1" Margin="30,0">
+            <Grid>
+                <StackLayout>
+                    <Label Text="{Binding SelectedProduct.Name}" TextColor="#2D2942" FontSize="25" FontAttributes="Bold"/>
+                    <Label Text="{Binding SelectedProduct.Model}" TextColor="#2D2942" FontSize="14" Opacity="0.5"/>
+                </StackLayout>
+                <Label Text="{Binding SelectedProduct.Price,StringFormat='${0}'}" TextColor="#2D2942" FontSize="20" FontAttributes="Bold" 
+                       HorizontalOptions="End"/>
+            </Grid>
+            <StackLayout>
+                <Label Text="About" TextColor="#2D2942" FontAttributes="Bold" FontSize="16"/>
+                <Label Text="{Binding SelectedProduct.Description}" TextColor="#2D2942" FontSize="12" FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="20">
+                <Grid>
+                    <Ellipse Aspect="Uniform" WidthRequest="32" HeightRequest="32" Fill="white"/>
+                    <Path Aspect="Uniform" Stroke="#03d3fc" StrokeThickness="2" Data="M5 12H19" StrokeLineCap="Round" 
+                          StrokeLineJoin="Round" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Grid>
+                <Label Text="1" TextColor="Black" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                <Grid>
+                    <Ellipse Aspect="Uniform" WidthRequest="32" HeightRequest="32" Fill="white"/>
+                    <Path Aspect="Uniform" Stroke="#03d3fc" StrokeThickness="2" Data="M12 5V19" StrokeLineCap="Round" 
+                          StrokeLineJoin="Round" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Path Aspect="Uniform" Stroke="#03d3fc" StrokeThickness="2" Data="M5 12H19" StrokeLineCap="Round" 
+                          StrokeLineJoin="Round" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Grid>
+                <Button Text="ORDER" TextColor="white" FontSize="14" WidthRequest="195" HeightRequest="46" CornerRadius="32" HorizontalOptions="End"
+                        BackgroundColor="#03d3fc" VerticalOptions="End" Clicked="Button_Clicked"/>
+
+            </StackLayout>
+        </StackLayout>
+
+
+    </Grid>
+    
+    
+
+</ContentPage>
